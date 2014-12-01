@@ -21,7 +21,7 @@ Benchmark.bm do |x|
   x.report("insert 500000 docs") {
     docs = (1..500000).map { |i| mkdoc(i) }
 
-    docs.each_slice(2000) do |slice|
+    docs.each_slice(1000) do |slice|
       bdy = slice.map { |d|
         {create: {_index: 'test', _type: 'observation', data: d } }
       }
@@ -31,6 +31,6 @@ Benchmark.bm do |x|
   }
 
   x.report("search by value") {
-    client.search type: 'observation', q: "valueQuantity.value:36"
+    client.search type: 'observation', q: "valueQuantity.value:>39.0"
   }
 end
