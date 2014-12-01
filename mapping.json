@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "observation" : {
+      "properties" : {
+        "_all": { "enabled": false },
+        "valueQuantity" : {
+          "type": "object",
+          "properties": {
+            "value": { "type": "double", "store": false },
+            "units": { "type": "string", "store": false }
+          }
+        }
+      }
+    }
+  }
+}
