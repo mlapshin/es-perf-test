@@ -1,16 +1,264 @@
 {
-  "mappings": {
-    "observation" : {
-      "properties" : {
-        "_all": { "enabled": false },
-        "valueQuantity" : {
-          "type": "object",
-          "properties": {
-            "value": { "type": "double", "store": false },
-            "units": { "type": "string", "store": false }
-          }
+    "test": {
+        "mappings": {
+            "patient": {
+                "properties": {
+                    "text": {
+                        "properties": {
+                            "status": {
+                                "type": "string"
+                            },
+                            "div": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "telecom": {
+                        "properties": {
+                            "value": {
+                                "type": "string"
+                            },
+                            "use": {
+                                "type": "string"
+                            },
+                            "system": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "resourceType": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "properties": {
+                            "use": {
+                                "type": "string"
+                            },
+                            "given": {
+                                "type": "string"
+                            },
+                            "family": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "managingOrganization": {
+                        "properties": {
+                            "reference": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "identifier": {
+                        "properties": {
+                            "value": {
+                                "type": "string"
+                            },
+                            "use": {
+                                "type": "string"
+                            },
+                            "system": {
+                                "type": "string"
+                            },
+                            "label": {
+                                "type": "string"
+                            },
+                            "assigner": {
+                                "properties": {
+                                    "display": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "gender": {
+                        "properties": {
+                            "coding": {
+                                "properties": {
+                                    "system": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "deceasedBoolean": {
+                        "type": "boolean"
+                    },
+                    "birthDate": {
+                        "format": "dateOptionalTime",
+                        "type": "date"
+                    },
+                    "address": {
+                        "properties": {
+                            "zip": {
+                                "type": "string"
+                            },
+                            "use": {
+                                "type": "string"
+                            },
+                            "state": {
+                                "type": "string"
+                            },
+                            "line": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "observation": {
+                "_parent": { "type": "patient" },
+                "properties": {
+                    "valueString": {
+                        "properties": {
+                            "value": {
+                                "type": "string"
+                            },
+                            "units": {
+                                "type": "string"
+                            },
+                            "system": {
+                                "type": "string"
+                            },
+                            "code": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "valueQuantity": {
+                        "properties": {
+                            "units": {
+                                "type": "string"
+                            },
+                            "system": {
+                                "type": "string"
+                            },
+                            "code": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "text": {
+                        "properties": {
+                            "status": {
+                                "type": "string"
+                            },
+                            "div": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "subject": {
+                        "properties": {
+                            "reference": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "resourceType": {
+                        "type": "string"
+                    },
+                    "reliability": {
+                        "type": "string"
+                    },
+                    "referenceRange": {
+                        "properties": {
+                            "low": {
+                                "properties": {
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "units": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "height": {
+                                "properties": {
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "units": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "name": {
+                        "properties": {
+                            "text": {
+                                "type": "string"
+                            },
+                            "coding": {
+                                "properties": {
+                                    "system": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "issued": {
+                        "format": "YYYY-MM-dd HH:mm:ssZ",
+                        "type": "date"
+                    },
+                    "interpretation": {
+                        "properties": {
+                            "coding": {
+                                "properties": {
+                                    "system": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "bodySite": {
+                        "properties": {
+                            "coding": {
+                                "properties": {
+                                    "system": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

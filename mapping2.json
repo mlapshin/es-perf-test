@@ -1,0 +1,9 @@
+{
+  "mappings": {
+    "observation" : {
+      "properties" : {
+        "_all": { "enabled": true }
+      }
+    }
+  }
+}
